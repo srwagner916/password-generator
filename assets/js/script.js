@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "T", "U", "V", "W", "X", "Y", "Z"]
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
 var passwordArr = [];
@@ -16,9 +16,43 @@ var generatePassword = function(){
     generatePassword();
   }
   var includeLowercase = prompt("Would you like to include lowercase characters? Enter 'yes' or 'no'.");
-  if (includeLowercase === "yes" || includeLowercase === "YES");
-    var passCharacters = passwordArr.concat(lowercase);
-    console.log(passCharacters);
+  if (includeLowercase === "yes" || includeLowercase === "YES") {
+    passwordArr = passwordArr.concat(lowercase);
+  }
+  else {
+    alert("Please enter a valid answer.");
+    generatePassword();
+  } 
+  
+  var includeUppercase = prompt("Would you like to include uppercase characters? Enter 'yes' or 'no'.");
+  if (includeUppercase === "yes" || includeUppercase === "YES") {
+    passwordArr = passwordArr.concat(uppercase);
+    console.log(passwordArr);
+  }
+  else {
+    alert("Please enter a valid answer.");
+    generatePassword();
+  }
+  
+  var includeNumbers = prompt("Would you like to include numbers? Enter 'yes' or 'no'.");
+  if (includeNumbers === "yes" || incluceNumbers === "YES") {
+    passwordArr = passwordArr.concat(numbers);
+    console.log(passwordArr);
+  }
+  else {
+    alert("Please enter a valid answer.");
+    generatePassword();
+  }
+
+  var includeSymbols = prompt("Would you like to include special characters? Enter 'yes' or 'no'.");
+  if (includeSymbols === "yes" || includeSymbols === "YES") {
+    passwordArr = passwordArr.concat(symbols);
+    console.log(passwordArr);
+  }
+  else {
+    alert("Please enter a valid answer.");
+    generatePassword();
+  }
 };
 
 
