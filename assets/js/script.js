@@ -5,65 +5,64 @@ var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
 var passwordArr = [];
+var mustInclude = [];
+var pass = [];
 
-var passwordInputs = function(){
+var generatePassword = function(){
   var length = prompt("How many characters would you like? Please enter a number between 8 and 128");
   if(length >= 8 && length <= 128) {
-    return length;
   }
   else {
     alert("Please enter a valid answer.");
-    passwordInputs();
+    generatePassword();
   }
   var includeLowercase = prompt("Would you like to include lowercase characters? Enter 'yes' or 'no'.");
   if (includeLowercase === "yes" || includeLowercase === "YES") {
-    return includeLowercase;
     passwordArr = passwordArr.concat(lowercase);
+    mustInclude.push(randomGrab(lowercase));
   }
   else {
     alert("Please enter a valid answer.");
-    passwordInputs();
+    generatePassword();
   } 
   
   var includeUppercase = prompt("Would you like to include uppercase characters? Enter 'yes' or 'no'.");
   if (includeUppercase === "yes" || includeUppercase === "YES") {
-    return includeUppercase;
     passwordArr = passwordArr.concat(uppercase);
+    mustInclude.push(randomGrab(uppercase));
+    console.log(mustInclude);
   }
   else {
     alert("Please enter a valid answer.");
-    passwordInputs();
+    generatePassword();
   }
   
   var includeNumbers = prompt("Would you like to include numbers? Enter 'yes' or 'no'.");
   if (includeNumbers === "yes" || incluceNumbers === "YES") {
-    return includeNumbers;
     passwordArr = passwordArr.concat(numbers);
+    mustInclude.push(randomGrab(numbers));
   }
   else {
     alert("Please enter a valid answer.");
-    passwordInputs();
+    generatePassword();
   }
 
   var includeSymbols = prompt("Would you like to include special characters? Enter 'yes' or 'no'.");
   if (includeSymbols === "yes" || includeSymbols === "YES") {
-    return includeSymbols
     passwordArr = passwordArr.concat(symbols);
+    mustInclude.push(randomGrab(symbols));
+    console.log(mustInclude);
   }
   else {
     alert("Please enter a valid answer.");
-    passwordInputs();
+    generatePassword();
+  }
+  for (var i=0; i < length; i++) {
+    var passCharacters = randomGrab(passwordArr);
+    pass = pass.concat(passCharacters);
+    console.log(pass);
   }
 };
-
-var generatePassword = function() {
-  var passwordInputs = passwordInputs();
-  var password = [];
-  var passwordCharacters = [];
-  var includeAppropriateCharacters = [];
-
-  console.log(includelowerCase);
-}
 
 
 var randomGrab = function(arr) {
