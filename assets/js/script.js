@@ -12,6 +12,9 @@ var generatePassword = function(){
   var length = prompt("How many characters would you like? Please enter a number between 8 and 128");
   if(length >= 8 && length <= 128) {
   }
+  else if (!length) {
+    return;
+  }
   else {
     alert("Please enter a valid answer.");
     generatePassword();
@@ -20,6 +23,9 @@ var generatePassword = function(){
   if (includeLowercase === "yes" || includeLowercase === "YES") {
     passwordArr = passwordArr.concat(lowercase);
     mustInclude.push(randomGrab(lowercase));
+  }
+  else if (includeLowercase === "no" || includeLowercase === "NO") {
+    passwordArr = passwordArr;
   }
   else {
     alert("Please enter a valid answer.");
@@ -32,15 +38,21 @@ var generatePassword = function(){
     mustInclude.push(randomGrab(uppercase));
     console.log(mustInclude);
   }
+  else if (includeUppercase === "no" || includeUppercase === "NO") {
+    passwordArr = passwordArr;
+  }
   else {
     alert("Please enter a valid answer.");
     generatePassword();
   }
   
   var includeNumbers = prompt("Would you like to include numbers? Enter 'yes' or 'no'.");
-  if (includeNumbers === "yes" || incluceNumbers === "YES") {
+  if (includeNumbers === "yes" || includeNumbers === "YES") {
     passwordArr = passwordArr.concat(numbers);
     mustInclude.push(randomGrab(numbers));
+  }
+  else if (includeNumbers === "no" || includeNumbers === "NO") {
+    passwordArr = passwordArr;
   }
   else {
     alert("Please enter a valid answer.");
@@ -53,10 +65,20 @@ var generatePassword = function(){
     mustInclude.push(randomGrab(symbols));
     console.log(mustInclude);
   }
+  else if (includeSymbols === "no" || includeSymbols === "NO") {
+    passwordArr = passwordArr;
+  }
   else {
     alert("Please enter a valid answer.");
     generatePassword();
   }
+  if (includeLowercase === "no" || includeLowercase === "NO"
+     && includeUppercase === "no" || includeUppercase === "NO"
+     && includeNumbers === "no" || includeNumbers === "NO"
+     && includeSymbols === "no" || includeSymbols === "NO") {
+       alert("You have to include at least one type of character");
+       generatePassword();
+     } 
   for (var i=0; i < length; i++) {
     var passCharacters = randomGrab(passwordArr);
     pass = pass.concat(passCharacters);
