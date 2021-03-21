@@ -6,55 +6,71 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
 var passwordArr = [];
 
-var generatePassword = function(){
+var passwordInputs = function(){
   var length = prompt("How many characters would you like? Please enter a number between 8 and 128");
   if(length >= 8 && length <= 128) {
-    console.log(length);
+    return length;
   }
   else {
     alert("Please enter a valid answer.");
-    generatePassword();
+    passwordInputs();
   }
   var includeLowercase = prompt("Would you like to include lowercase characters? Enter 'yes' or 'no'.");
   if (includeLowercase === "yes" || includeLowercase === "YES") {
+    return includeLowercase;
     passwordArr = passwordArr.concat(lowercase);
   }
   else {
     alert("Please enter a valid answer.");
-    generatePassword();
+    passwordInputs();
   } 
   
   var includeUppercase = prompt("Would you like to include uppercase characters? Enter 'yes' or 'no'.");
   if (includeUppercase === "yes" || includeUppercase === "YES") {
+    return includeUppercase;
     passwordArr = passwordArr.concat(uppercase);
-    console.log(passwordArr);
   }
   else {
     alert("Please enter a valid answer.");
-    generatePassword();
+    passwordInputs();
   }
   
   var includeNumbers = prompt("Would you like to include numbers? Enter 'yes' or 'no'.");
   if (includeNumbers === "yes" || incluceNumbers === "YES") {
+    return includeNumbers;
     passwordArr = passwordArr.concat(numbers);
-    console.log(passwordArr);
   }
   else {
     alert("Please enter a valid answer.");
-    generatePassword();
+    passwordInputs();
   }
 
   var includeSymbols = prompt("Would you like to include special characters? Enter 'yes' or 'no'.");
   if (includeSymbols === "yes" || includeSymbols === "YES") {
+    return includeSymbols
     passwordArr = passwordArr.concat(symbols);
-    console.log(passwordArr);
   }
   else {
     alert("Please enter a valid answer.");
-    generatePassword();
+    passwordInputs();
   }
 };
 
+var generatePassword = function() {
+  var passwordInputs = passwordInputs();
+  var password = [];
+  var passwordCharacters = [];
+  var includeAppropriateCharacters = [];
+
+  console.log(includelowerCase);
+}
+
+
+var randomGrab = function(arr) {
+  var index = Math.floor(Math.random()* arr.length);
+  var element = arr[index];
+  return element;
+};
 
 
 // Write password to the #password input
@@ -68,57 +84,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-//Create functions for generating length and characters
-// 
-// 
-// 
-
-// var generateLength = function() {
-//   var length = prompt("How many characters would you like? Please enter a number between 8 and 128");
-//   if(length >= 8 && length <= 128) {
-//     return parseInt(length);  
-//   }
-//   else {
-//     alert("Please enter a valid answer.");
-//     generateLength();
-//   }
-// };
-
-// var generateLowerCase = function() {
-//   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-//   var includeLowerCase = prompt("Would you like to include lower case characters? Please enter 'yes' or 'no'.");
-//   if (includeLowerCase === "yes" || includeLowerCase === "YES") {
-//     console.log(lowerCase(Math.floor(Math.random()* lowerCase.length)))
-//     return lowerCase(Math.floor(Math.random()* lowerCase.length));
-    
-//   }
-//   else {
-//     alert("Please enter a valid response.");
-//     generateLowerCase();
-//   }
-// };
-
-// var generateUpperCase = function() {
-//   var includeUpperCase = prompt("Would you like to include upper case characters? Please enter 'yes' or 'no'.");
-//   if (includeUpperCase === "yes" || includeUpperCase === "YES") {
-//     return includeUpperCase;
-//   }
-//   else {
-//     alert("Please enter a valid response");
-//     generateUpperCase();
-//   }
-// };
-
-// var generateSpecialCharacter = function() {
-//   var includeSpecialCharacter = prompt("Would you like to include special characters? Please enter 'yes' or 'no'.");
-//   if (includeSpecialCharacter === "yes" || includeSpecialCharacter === "YES") {
-//     return includeSpecialCharacter;
-//   }
-//   else {
-//     alert("Please enter a valid response");
-//     generateSpecialCharacter();
-//   }
-// };
-
