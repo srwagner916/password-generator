@@ -62,6 +62,12 @@ var generatePassword = function(){
     pass = pass.concat(passCharacters);
     console.log(pass);
   }
+  for (var i=0; i < mustInclude.length; i++) {
+    pass[i] = mustInclude[i];
+    console.log(mustInclude);
+    console.log(pass);
+  }
+  return pass.join("");
 };
 
 
