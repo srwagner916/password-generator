@@ -5,7 +5,10 @@ They will also be prompted to choose whether they want to include lowercase lett
 a random string of characters that follows the user's desired criteria.
 
 ## Link to the deployed application
-
+<https://srwagner916.github.io/password-generator/>
 ## Link to the GitHub repository
-
+<https://github.com/srwagner916/password-generator>
 ## screenshot of the deployed application
+!["deployed password generator"](./assets/images/password-generator-screenshot.png)
+
+### Shay Wagner
